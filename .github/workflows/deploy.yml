@@ -38,8 +38,14 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run type-check
+
       - name: Build project
-        run: npm run build -- --base="${{ steps.pages.outputs.base_url }}/"
+        run: npm run build-only -- --base="${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload production-ready build files
         uses: actions/upload-pages-artifact@v2

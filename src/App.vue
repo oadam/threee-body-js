@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import type { Ref } from 'vue'
 
 const SPEED_PER_DRAGGED_PX = 1 // pixel per second per pixel
@@ -136,6 +136,7 @@ onMounted(() => {
     :viewBox="'0 0 ' + SIZE.x + ' ' + SIZE.y"
     xmlns="http://www.w3.org/2000/svg"
   >
+    <!-- eslint-disable-next-line vue/require-v-for-key -->
     <circle
       v-for="p in displayedPlanets"
       :cx="p.pos.x"
