@@ -79,6 +79,7 @@ const onFrame = (timemillis: number) => {
   }
   while (lastPhysics + DT * 1000 < timemillis) {
     lastPhysics += DT * 1000
+    planets.value = planets.value.filter((p) => Math.abs(p.pos.x) + Math.abs(p.pos.y) < 10 * SIZE.x)
     for (const p of planets.value) {
       p.totalDv = { x: 0, y: 0 }
     }
